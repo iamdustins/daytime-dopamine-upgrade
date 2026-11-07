@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { 
   Sparkles, Coffee, Award, CheckCircle2, ShieldCheck, 
-  FileText, MapPin, Mail, ShoppingBag, Compass, 
-  ArrowUpRight, Code2, Check, Trees, Terminal, Layers
+  MapPin, Mail, ShoppingBag, Compass, 
+  ArrowUpRight, Code2, Check, Trees, Terminal
 } from 'lucide-react';
 
 const personas = {
@@ -13,7 +13,7 @@ const personas = {
     title: 'Deadline Darling',
     role: 'Enterprise Project Manager & AI Evaluation Specialist',
     emblem: '/images/deadline_darling.png',
-    accent: 'from-zinc-200/20 via-zinc-400/10 to-transparent',
+    accentSwirl: 'from-purple-900/25 via-amber-600/15 to-transparent',
     badgeText: 'Technical PM & System Architecture',
     tagline: 'Bridging high-stakes regulated field operations and testable code behavior.',
     narrative: `Managing enterprise delivery from blueprint through execution. With deep background handling complex claims exposure, I specialize in translating ambiguous business rules into deterministic validation models, JSON output contracts, and reproducible failure-mode test suites.`,
@@ -40,7 +40,7 @@ const personas = {
     title: 'Signing Sweetheart',
     role: 'Texas Notary Public',
     emblem: '/images/signing_sweetheart.png',
-    accent: 'from-amber-200/20 via-zinc-400/10 to-transparent',
+    accentSwirl: 'from-amber-600/25 via-purple-900/15 to-transparent',
     badgeText: 'Texas Statutory Notary',
     tagline: 'Part paperwork pro, part professional sparkle.',
     narrative: `Making document execution seamless, elevated, and legally impeccable. Loud sparkle, legit stamp. Everything is bigger in Texas—especially my dedication to getting your critical deeds, affidavits, and transactions done right the first time.`,
@@ -63,7 +63,7 @@ const personas = {
     title: 'Wanderlust Wildflower',
     role: 'Catastrophe Operations & Field Deployments',
     emblem: '/images/wanderlust_wildflower.png',
-    accent: 'from-stone-300/20 via-zinc-500/10 to-transparent',
+    accentSwirl: 'from-violet-900/20 via-yellow-600/15 to-transparent',
     badgeText: 'Field Readiness & Adventure',
     tagline: 'Remote-first velocity, on-site agility.',
     narrative: `“It is in all of us to defy expectations, to go into the world and to be brave, and to want, to need, to hunger for adventures. To embrace the chance and risk so that we may breathe and know what it is to be free.” — Mae Chevrette`,
@@ -99,16 +99,15 @@ export default function App() {
     const x = (rect.left + rect.width / 2) / window.innerWidth;
     const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-    // Platinum, champagne, liquid silver confetti
+    // Rich liquid amethyst, warm topaz gold, and platinum starry sparkles
     confetti({
-      particleCount: 50,
-      spread: 70,
+      particleCount: 55,
+      spread: 75,
       origin: { x, y },
-      colors: ['#ffffff', '#e2e8f0', '#cbd5e1', '#f1f5f9', '#d4af37', '#94a3b8'],
-      shapes: ['circle', 'square'],
-      ticks: 200,
+      colors: ['#a855f7', '#fbbf24', '#f59e0b', '#c084fc', '#ffffff', '#e2e8f0'],
+      ticks: 240,
       gravity: 0.8,
-      scalar: 0.9
+      scalar: 0.95
     });
     setStampedCount(prev => prev + 1);
   };
@@ -122,39 +121,28 @@ export default function App() {
   return (
     <div className="min-h-screen bg-matte-canvas text-[#e2e1e6] relative overflow-hidden font-sans">
       
-      {/* Liquid Organic Floating Ambient Light Fields */}
+      {/* Glossy Glass Tone Underswirls — Purples & Molten Yellows */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <motion.div 
-          animate={{
-            x: [0, 40, -30, 0],
-            y: [0, -50, 20, 0],
-            scale: [1, 1.15, 0.95, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[15%] left-[15%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-white/[0.04] via-zinc-400/[0.02] to-transparent blur-3xl opacity-80"
-        />
-        <motion.div 
-          animate={{
-            x: [0, -50, 40, 0],
-            y: [0, 60, -30, 0],
-            scale: [1, 0.9, 1.1, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[40%] right-[-5%] w-[550px] h-[550px] rounded-full bg-gradient-to-tl from-zinc-200/[0.03] via-amber-200/[0.015] to-transparent blur-3xl opacity-70"
-        />
-        <motion.div 
-          animate={{
-            x: [0, 30, -40, 0],
-            y: [0, 40, -20, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute -bottom-[10%] left-[25%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-zinc-300/[0.03] to-transparent blur-3xl opacity-60"
-        />
+        
+        {/* Large Swirling Violet/Amethyst Vortex */}
+        <div className="absolute -top-[20%] left-[10%] w-[750px] h-[750px] rounded-full underswirl-purple animate-swirl-slow opacity-80" />
+
+        {/* Counter-rotating Molten Amber/Yellow Caustic */}
+        <div className="absolute top-[25%] -right-[15%] w-[700px] h-[700px] rounded-full underswirl-yellow animate-swirl-counter opacity-75" />
+
+        {/* Mid-Depth Deep Orchid & Gold Confluence */}
+        <div className="absolute top-[55%] left-[-10%] w-[650px] h-[650px] rounded-full underswirl-violet animate-swirl-slow opacity-70" />
+
+        {/* Lower Warm Topaz/Amber Basin */}
+        <div className="absolute -bottom-[20%] right-[15%] w-[800px] h-[800px] rounded-full underswirl-amber animate-swirl-counter opacity-85" />
+
+        {/* Glass Sheen Shimmer Overlay */}
+        <div className="absolute inset-0 bg-radial-[circle_800px_at_50%_200px] from-transparent via-black/40 to-black/80 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-8 sm:py-12 flex flex-col gap-14 sm:gap-20">
 
-        {/* Floating Glossy Matte Nav Capsule */}
+        {/* Floating Glossy Matte Nav Capsule with Violet & Gold Glass Sheen */}
         <motion.header 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -172,7 +160,7 @@ export default function App() {
                     onError={(e) => { e.target.src = '/images/signing_sweetheart.png'; }}
                   />
                 </div>
-                <div className="absolute inset-0 rounded-full ring-1 ring-white/20 group-hover:ring-white/50 transition-all" />
+                <div className="absolute inset-0 rounded-full ring-1 ring-purple-400/30 group-hover:ring-amber-300/60 transition-all duration-500" />
               </div>
               <div>
                 <span className="font-editorial text-lg tracking-wide text-white block leading-none font-medium">
@@ -186,10 +174,10 @@ export default function App() {
 
             <div className="flex items-center gap-2 sm:gap-3">
               <a 
-                href="https://rebeccafayeblasco.link"
+                href="https://rebeccafayeblasco.link" 
                 target="_blank" 
                 rel="noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs text-zinc-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all duration-300"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs text-zinc-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-amber-400/30 transition-all duration-300"
               >
                 <span>Bio Link</span>
                 <ArrowUpRight className="w-3 h-3 text-zinc-400" />
@@ -197,9 +185,9 @@ export default function App() {
 
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium text-white bg-gradient-to-r from-zinc-800 to-zinc-900 hover:from-zinc-700 hover:to-zinc-800 border border-white/15 hover:border-white/30 transition-all duration-300 shadow-md active:scale-95"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium text-white bg-gradient-to-r from-zinc-800 via-purple-950/40 to-zinc-900 hover:from-purple-900/50 hover:to-zinc-800 border border-purple-500/30 hover:border-amber-400/50 transition-all duration-300 shadow-lg active:scale-95"
               >
-                {copiedEmail ? <Check className="w-3.5 h-3.5 text-zinc-200" /> : <Mail className="w-3.5 h-3.5 text-zinc-400" />}
+                {copiedEmail ? <Check className="w-3.5 h-3.5 text-amber-300" /> : <Mail className="w-3.5 h-3.5 text-purple-300" />}
                 <span>{copiedEmail ? 'Email Copied' : 'Contact'}</span>
               </button>
             </div>
@@ -214,16 +202,16 @@ export default function App() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col gap-6 max-w-4xl"
           >
-            {/* Coffee Motto Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-zinc-400 self-center sm:self-start backdrop-blur-xl">
-              <Coffee className="w-3.5 h-3.5 text-zinc-300" />
+            {/* Coffee Motto Pill with Violet/Topaz Undershimmer */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-zinc-400 self-center sm:self-start backdrop-blur-xl shadow-inner">
+              <Coffee className="w-3.5 h-3.5 text-amber-400/90" />
               <span className="tracking-wide">If I’m not drinking coffee, I’m wearing it.</span>
             </div>
 
-            {/* Editorial Liquid Title */}
+            {/* Editorial Liquid Title with Purple/Gold Glass Refraction */}
             <h1 className="font-editorial text-5xl sm:text-7xl md:text-8xl tracking-tight text-white leading-[1.02] font-normal">
               Deadlines, Data, <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-200/90 to-purple-300">
                 &amp; Destinations.
               </span>
             </h1>
@@ -234,17 +222,17 @@ export default function App() {
             </p>
 
             {/* Seamless Liquid Metrics Ribbon */}
-            <div className="mt-4 pt-8 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+            <div className="mt-4 pt-8 border-t border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
               <div className="space-y-1">
                 <div className="font-editorial text-3xl sm:text-4xl text-white font-medium">$7.5M+</div>
                 <div className="text-[11px] font-mono tracking-wider uppercase text-zinc-400">Claim Exposure</div>
               </div>
               <div className="space-y-1">
-                <div className="font-editorial text-3xl sm:text-4xl text-white font-medium">7,000+</div>
+                <div className="font-editorial text-3xl sm:text-4xl text-amber-200/90 font-medium">7,000+</div>
                 <div className="text-[11px] font-mono tracking-wider uppercase text-zinc-400">Catastrophe Claims</div>
               </div>
               <div className="space-y-1">
-                <div className="font-editorial text-3xl sm:text-4xl text-white font-medium">10+ Yrs</div>
+                <div className="font-editorial text-3xl sm:text-4xl text-purple-300 font-medium">10+ Yrs</div>
                 <div className="text-[11px] font-mono tracking-wider uppercase text-zinc-400">Regulated Delivery</div>
               </div>
               <div className="space-y-1">
@@ -257,7 +245,7 @@ export default function App() {
 
         {/* The Seamless Persona Flow — "Falling Into Itself" */}
         <section className="relative">
-          {/* Fluid Interactive Persona Controller */}
+          {/* Fluid Interactive Persona Controller with Glass Tone Swirls */}
           <div className="flex items-center justify-center mb-8">
             <div className="glossy-matte-capsule specular-rim rounded-full p-1.5 flex items-center gap-1 shadow-xl">
               {Object.keys(personas).map((key) => {
@@ -272,7 +260,7 @@ export default function App() {
                     {isSelected && (
                       <motion.div
                         layoutId="active-pill"
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-white/[0.12] to-white/[0.05] border border-white/25 shadow-inner"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 via-amber-500/15 to-white/10 border border-white/30 shadow-inner"
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
                       />
                     )}
@@ -285,7 +273,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Morphing Liquid Persona Canvas */}
+          {/* Morphing Liquid Persona Canvas with Internal Underswirl Caustic */}
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -295,21 +283,22 @@ export default function App() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="glossy-matte-capsule specular-rim rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden shadow-2xl"
             >
-              {/* Subtle top liquid gradient highlight */}
-              <div className={`absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-br ${current.accent} blur-3xl pointer-events-none opacity-60`} />
+              {/* Internal Chromatic Underswirl Glow */}
+              <div className={`absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br ${current.accentSwirl} blur-3xl pointer-events-none opacity-70 animate-swirl-slow`} />
+              <div className="absolute -bottom-32 -right-32 w-[450px] h-[450px] rounded-full bg-gradient-to-tl from-amber-500/15 via-purple-600/10 to-transparent blur-3xl pointer-events-none opacity-60 animate-swirl-counter" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
-                {/* Left Emblem Visual */}
+                {/* Left Emblem Visual with Glass Sheen Border */}
                 <div className="lg:col-span-4 flex flex-col items-center text-center">
                   <div className="relative group">
-                    <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border border-white/15 bg-zinc-950/80 shadow-2xl p-2 relative">
+                    <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border border-white/20 bg-zinc-950/80 shadow-2xl p-2 relative">
                       <img 
                         src={current.emblem} 
                         alt={current.title} 
                         className="w-full h-full object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 pointer-events-none" />
+                      <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-purple-400/20 pointer-events-none" />
                     </div>
                   </div>
 
@@ -329,7 +318,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <blockquote className="text-base sm:text-lg text-zinc-200/90 leading-relaxed font-light border-l border-white/20 pl-4 italic">
+                  <blockquote className="text-base sm:text-lg text-zinc-200/90 leading-relaxed font-light border-l border-amber-400/40 pl-4 italic">
                     {current.narrative}
                   </blockquote>
 
@@ -337,7 +326,7 @@ export default function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     {current.highlights.map((h, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-300 leading-normal">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/60 mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-amber-300 mt-1.5 shrink-0" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -351,12 +340,12 @@ export default function App() {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.97 }}
                           onClick={triggerNotaryStamp}
-                          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-300 text-zinc-900 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl transition-all"
+                          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-100 via-purple-100 to-zinc-100 text-zinc-950 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl transition-all"
                         >
-                          <Award className="w-4 h-4 text-zinc-800" />
+                          <Award className="w-4 h-4 text-purple-900" />
                           <span>Apply Official Texas Notary Seal</span>
                           {stampedCount > 0 && (
-                            <span className="ml-1 px-2 py-0.5 rounded-full bg-zinc-900 text-white text-[10px] font-mono">
+                            <span className="ml-1 px-2 py-0.5 rounded-full bg-zinc-900 text-amber-300 text-[10px] font-mono">
                               {stampedCount}
                             </span>
                           )}
@@ -375,7 +364,7 @@ export default function App() {
                               href={link.url}
                               target="_blank"
                               rel="noreferrer"
-                              className="px-4 py-2 rounded-full text-xs font-medium text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all flex items-center gap-1.5"
+                              className="px-4 py-2 rounded-full text-xs font-medium text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-purple-950/30 border border-white/10 hover:border-purple-400/40 transition-all flex items-center gap-1.5"
                             >
                               <Icon className="w-3.5 h-3.5 text-zinc-400" />
                               <span>{link.label}</span>
@@ -392,12 +381,12 @@ export default function App() {
           </AnimatePresence>
         </section>
 
-        {/* Forensic Systems & AI Evaluation Sandbox */}
+        {/* Forensic Systems & AI Evaluation Sandbox with Refractive Caustics */}
         <section className="relative">
-          <div className="glossy-matte-capsule specular-rim rounded-[2.5rem] p-8 sm:p-12 overflow-hidden shadow-2xl">
-            <div className="max-w-2xl mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs text-zinc-400 mb-4 font-mono">
-                <ShieldCheck className="w-3.5 h-3.5 text-zinc-300" />
+          <div className="glossy-matte-capsule specular-rim rounded-[2.5rem] p-8 sm:p-12 overflow-hidden shadow-2xl relative">
+            <div className="max-w-2xl mb-8 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-500/20 text-xs text-purple-300 mb-4 font-mono">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Forensic Logic Architecture</span>
               </div>
               <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal mb-3">
@@ -409,7 +398,7 @@ export default function App() {
             </div>
 
             {/* Seamless Mode Switcher */}
-            <div className="inline-flex items-center p-1 rounded-full bg-zinc-950/70 border border-white/10 mb-6">
+            <div className="inline-flex items-center p-1 rounded-full bg-zinc-950/70 border border-white/10 mb-6 relative z-10">
               <button
                 onClick={() => setLogicMode('naive')}
                 className={`px-4 py-1.5 rounded-full text-xs transition-all ${
@@ -424,7 +413,7 @@ export default function App() {
                 onClick={() => setLogicMode('inspected')}
                 className={`px-4 py-1.5 rounded-full text-xs transition-all ${
                   logicMode === 'inspected' 
-                    ? 'bg-white text-zinc-950 font-semibold shadow' 
+                    ? 'bg-gradient-to-r from-purple-100 to-amber-100 text-zinc-950 font-semibold shadow' 
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -433,7 +422,7 @@ export default function App() {
             </div>
 
             {/* Code / Logic Canvas */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               <div className="lg:col-span-7 rounded-2xl bg-[#050507] border border-white/10 p-5 font-mono text-xs overflow-x-auto shadow-inner relative">
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[11px] text-zinc-400">
                   <span>claim_evaluation_contract.json</span>
@@ -471,7 +460,7 @@ export default function App() {
               <div className="lg:col-span-5 space-y-4">
                 <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
                   <h4 className="text-sm font-medium text-white mb-1.5 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-zinc-300" />
+                    <CheckCircle2 className="w-4 h-4 text-purple-300" />
                     <span>The Forensic Difference</span>
                   </h4>
                   <p className="text-xs text-zinc-400 leading-relaxed font-light">
@@ -481,7 +470,7 @@ export default function App() {
 
                 <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
                   <h4 className="text-sm font-medium text-white mb-1.5 flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-zinc-300" />
+                    <ShieldCheck className="w-4 h-4 text-amber-300" />
                     <span>Operational &amp; Security Lens</span>
                   </h4>
                   <p className="text-xs text-zinc-400 leading-relaxed font-light">
@@ -493,19 +482,22 @@ export default function App() {
           </div>
         </section>
 
-        {/* eBay Revival Spotlight — Smoked Obsidian Capsule */}
+        {/* eBay Revival Spotlight — Smoked Obsidian Capsule with Glass Tone Amber Underswirl */}
         <section className="relative">
           <motion.div 
             whileHover={{ y: -3 }}
             transition={{ duration: 0.3 }}
-            className="glossy-matte-capsule specular-rim rounded-[2.5rem] p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl"
+            className="glossy-matte-capsule specular-rim rounded-[2.5rem] p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden"
           >
-            <div className="flex items-center gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-white/[0.05] border border-white/15 flex items-center justify-center text-white shrink-0 shadow-inner">
-                <ShoppingBag className="w-7 h-7 text-zinc-200" />
+            {/* Subtle amber underswirl behind eBay card */}
+            <div className="absolute -top-12 -right-12 w-72 h-72 rounded-full underswirl-yellow opacity-60 pointer-events-none" />
+
+            <div className="flex items-center gap-5 relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-300 shrink-0 shadow-inner">
+                <ShoppingBag className="w-7 h-7" />
               </div>
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-zinc-300 mb-1.5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-[11px] font-mono text-amber-300 mb-1.5">
                   <span>The eBay Revival Drop</span>
                 </div>
                 <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-white">
@@ -521,7 +513,7 @@ export default function App() {
               href="https://www.ebay.com/usr/daytime_dopamine" 
               target="_blank" 
               rel="noreferrer"
-              className="px-6 py-3 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 text-xs font-semibold tracking-wider uppercase transition-all shadow-xl hover:scale-105 shrink-0 flex items-center gap-2"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100 text-zinc-950 hover:to-white text-xs font-semibold tracking-wider uppercase transition-all shadow-xl hover:scale-105 shrink-0 flex items-center gap-2 relative z-10"
             >
               <span>Visit eBay Store</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -529,10 +521,10 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* The Lorax Easter Egg — Seamless Whisper Pill */}
+        {/* The Lorax Easter Egg — Seamless Whisper Pill with Subtle Violet Caustic */}
         <section className="text-center pt-2">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.02] border border-white/[0.06] text-xs text-zinc-400 font-light">
-            <Trees className="w-3.5 h-3.5 text-zinc-300" />
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-950/20 border border-purple-500/20 text-xs text-purple-200/90 font-light shadow-inner">
+            <Trees className="w-3.5 h-3.5 text-amber-400" />
             <span>“Unless someone like you cares a whole awful lot, nothing is going to get better. It’s not.” — The Lorax</span>
           </div>
         </section>

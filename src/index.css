@@ -3,7 +3,7 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    background-color: #070709;
+    background-color: #060509;
     color: #e2e1e6;
     overflow-x: hidden;
   }
@@ -17,35 +17,58 @@
   }
 }
 
-/* Velvet Matte Base with Soft Radial Liquid Lights */
+/* Deep Velvet Obsidian Canvas with Chromatic Liquid Underswirls */
 .bg-matte-canvas {
-  background-color: #070709;
-  background-image: 
-    radial-gradient(ellipse 90% 60% at 50% -20%, rgba(120, 119, 130, 0.12), transparent),
-    radial-gradient(ellipse 70% 50% at 85% 45%, rgba(190, 160, 110, 0.05), transparent),
-    radial-gradient(ellipse 60% 40% at 15% 75%, rgba(140, 140, 160, 0.06), transparent);
+  background-color: #060509;
 }
 
-/* Liquid Glossy Glass: Satin Matte Body with Specular High-Gloss Rim */
+/* Glass Underswirl Container & Blends */
+.underswirl-purple {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.16) 0%, rgba(109, 40, 217, 0.08) 45%, transparent 70%);
+  filter: blur(80px);
+}
+
+.underswirl-yellow {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.14) 0%, rgba(217, 119, 6, 0.06) 50%, transparent 70%);
+  filter: blur(85px);
+}
+
+.underswirl-violet {
+  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.14) 0%, rgba(88, 28, 135, 0.08) 55%, transparent 70%);
+  filter: blur(90px);
+}
+
+.underswirl-amber {
+  background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.12) 0%, rgba(180, 83, 9, 0.05) 50%, transparent 70%);
+  filter: blur(80px);
+}
+
+/* Glossy Glass Capsule with Subsurface Purple/Yellow Caustics */
 .glossy-matte-capsule {
-  background: linear-gradient(145deg, rgba(26, 26, 32, 0.65) 0%, rgba(14, 14, 18, 0.8) 100%);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  background: 
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(147, 51, 234, 0.07), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 100%, rgba(234, 179, 8, 0.06), transparent 70%),
+    linear-gradient(145deg, rgba(22, 21, 28, 0.72) 0%, rgba(12, 11, 16, 0.85) 100%);
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6),
-    0 20px 40px -15px rgba(0, 0, 0, 0.8),
-    0 0 25px -5px rgba(255, 255, 255, 0.02);
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.7),
+    inset 0 0 40px -15px rgba(168, 85, 247, 0.08),
+    0 24px 48px -18px rgba(0, 0, 0, 0.9),
+    0 0 30px -10px rgba(234, 179, 8, 0.04);
 }
 
 .glossy-matte-capsule:hover {
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.18);
   box-shadow: 
-    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6),
-    0 25px 50px -15px rgba(0, 0, 0, 0.9),
-    0 0 35px -5px rgba(255, 255, 255, 0.05);
+    inset 0 1px 2.5px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.7),
+    inset 0 0 50px -10px rgba(168, 85, 247, 0.12),
+    0 30px 60px -20px rgba(0, 0, 0, 0.95),
+    0 0 45px -5px rgba(234, 179, 8, 0.08);
 }
 
 /* High Gloss Specular Rim */
@@ -56,44 +79,63 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 10%;
-  right: 10%;
+  left: 8%;
+  right: 8%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), rgba(250, 204, 21, 0.3), rgba(192, 132, 252, 0.3), transparent);
   pointer-events: none;
 }
 
-/* Liquid Sheen Animation */
-@keyframes liquid-drift {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
+/* Glass Tone Underswirl Animation Keyframes */
+@keyframes swirl-slow-rotate {
+  0% {
+    transform: rotate(0deg) scale(1) translate(0, 0);
   }
-  50% {
-    transform: translateY(-8px) scale(1.01);
+  33% {
+    transform: rotate(120deg) scale(1.15) translate(40px, -30px);
+  }
+  66% {
+    transform: rotate(240deg) scale(0.95) translate(-30px, 35px);
+  }
+  100% {
+    transform: rotate(360deg) scale(1) translate(0, 0);
   }
 }
 
-@keyframes liquid-glow {
+@keyframes swirl-counter-rotate {
+  0% {
+    transform: rotate(360deg) scale(1) translate(0, 0);
+  }
+  33% {
+    transform: rotate(240deg) scale(1.1) translate(-35px, 25px);
+  }
+  66% {
+    transform: rotate(120deg) scale(0.9) translate(30px, -40px);
+  }
+  100% {
+    transform: rotate(0deg) scale(1) translate(0, 0);
+  }
+}
+
+@keyframes liquid-pulse {
   0%, 100% {
-    opacity: 0.35;
+    opacity: 0.55;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.85;
     transform: scale(1.08);
   }
 }
 
-.animate-liquid-drift {
-  animation: liquid-drift 7s ease-in-out infinite;
+.animate-swirl-slow {
+  animation: swirl-slow-rotate 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.animate-liquid-glow {
-  animation: liquid-glow 9s ease-in-out infinite;
+.animate-swirl-counter {
+  animation: swirl-counter-rotate 34s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Seamless Flow Transition Mask */
-.feather-mask-y {
-  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+.animate-liquid-pulse {
+  animation: liquid-pulse 10s ease-in-out infinite;
 }
